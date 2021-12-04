@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="Pt-Br">
 <head>
-    <!-- Script que faz aparecer a janela -->
-        <script type="text/javascript" src="js/script.js"></script>
-    <!-- Script que faz aparecer a janela -->
 
   <meta name="description" content="Programador Front-End, Senai">
   <meta name="keywords" content="HTML, CSS, JavaScript, Senai">
@@ -51,6 +48,12 @@
             </div>
         </div> 
     </nav>
+
+    <!-- Atividade JavaScript -->
+    <br>
+    <div class="container bg-primary p-2 py-2">
+        <p id="mostrar" class="text-white text-center"></p>
+    </div>
 
     <!-- Seção para apresentação -->
     <section class="py-lg-3 text-center container">
@@ -114,9 +117,25 @@
                 <span class="bi bi-dpad"></span>
             </p>
        </div>
+
     </footer>
 
     <!-- scripts -->
+
+    <script>
+        const hoje = new Date();
+        const natal = new Date(hoje.getFullYear(), 11, 25);
+        const um_dia = 1000*60*60*24;
+        
+        if (hoje.getMonth()==11 && hoje.getDate()>25) natal.setFullYear(natal.getFullYear()+1);
+        
+        const dias = Math.ceil(
+            (natal.getTime() - hoje.getTime()) / (um_dia)
+        );
+        console.log(`Faltam ${dias} dias(s) para o Natal!`);
+        document.getElementById("mostrar").innerHTML = (`<i class="bi bi-bell"></i> Faltam ${dias} dias para o Natal! <i class="bi bi-bell"></i>`);
+    </script>
+
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascritp" src="js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
